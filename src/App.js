@@ -1,16 +1,20 @@
 
 import Navbar from './Navbar';
 import Home from './Home';
-import Test from './Test';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+// npx json-server --watch data/db.json --port 8000
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <div className="content">
-        <Home />
-        <Test />
-      </div>
-    </div>
+    <Router>
+        <div className="App">
+          <Navbar />
+          <div className="content">
+              <Routes>
+                <Route exact path='/' element={<Home />}/>
+              </Routes>
+          </div>
+        </div>
+    </Router>
   );
 }
 
