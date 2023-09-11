@@ -2,29 +2,36 @@ import { useState,useEffect } from "react";
 import BlogList from "./BlogList";
 
 const Home = () => {
-    const [blogs, setBlogs] = useState([
-        { title: 'My new website', body: 'lorem ipsum...', author: 'mario', id: 1 },
-        { title: 'Welcome party!', body: 'lorem ipsum...', author: 'yoshi', id: 2 },
-        { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
-      ]);
+    const [blogs, setBlogs] = useState(null);
 
-    const [name,setName] = useState('mario');
+    const [isPending,setIsPending] = useState(true);
 
-      const handleDelete = (id) =>{
-        const newBlogs = blogs.filter( blog => blog.id !== id);
-        setBlogs(newBlogs);
-      }
+    const [error,setError] = useState(null);
+
 
     useEffect(()=>{
-        console.log('use effect ran');
-        console.log(name);
-    },[name]);  //empty dependency array prevents the useEffect from running for every change
+        fetch('http://localhost:8000/blogs').
+            then(res => { 
+                if(!res.ok){
+                    throw Error('Could not fetch the data for that resource');
+                } 
+                return res.json();
+            }).then(data => {
+                console.log(data);
+                setBlogs(data)
+                setIsPending(false);
+                setError(null);  //for removing the  loading sign
+            }).catch(err=>{
+                setIsPending(false);
+                setError(err.message);
+            });
+    },[]);  //empty dependency array prevents the useEffect from running for every change
     
     return ( 
         <div className="home">
-            <BlogList blogs={blogs} title="All Blogs!" handleDelete={handleDelete}/>
-            {/* <BlogList blogs={blogs.filter((blog)=> blog.author==='mario')} title="Mario's Blog"  /> */}
-            <button onClick={()=> setName('luigi')}>change name</button>
+             {error && <div>{error}</div>}
+             {isPending && <div>Loading........</div>}  {/**Displays the loading sign before the data is loaded */}
+            {blogs && <BlogList blogs={blogs} title="All Blogs!"/>}            
         </div>
      );
 }
