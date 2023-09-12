@@ -4,6 +4,7 @@ import Home from './Home';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Create from './Create';
 import BlogDetails from './BlogDetails';
+import NotFound from './NotFound';
 // npx json-server --watch data/db.json --port 8000
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
                 <Route exact path='/' element={<Home />}/>
                 <Route path='/create' element={<Create />}/>
                 <Route path='/blog/:id' element={<BlogDetails/>}/>
+                <Route path='*' element={<NotFound/>}/>
               </Routes>
           </div>
         </div>
