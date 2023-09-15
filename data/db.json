@@ -13,10 +13,19 @@
       "id": 2
     },
     {
-      "title": "Hello Ninjas",
-      "body": "Hey ninja's I just wanted to say that this is the best course by far and I have seen several courses on react and none come even close to this.",
-      "author": "mario",
+      "title": "hello guys",
+      "body": "This is my new blow",
+      "author": "yoshi",
       "id": 3
     }
-  ]
+  ],
+  "user": {
+    "joelcr10": {
+      "name": "Joel C Raju",
+      "email": "joelcraju@gmail.com",
+      "username": "JoelCR10",
+      "password": "theholybible",
+      "dateRegistered": "12/04/2009"
+    }
+  }
 }

@@ -7,7 +7,7 @@ const useFetch = (url) =>{
     // 'http://localhost:8000/blogs'
     useEffect(()=>{
         const abortCont = new AbortController();
-        fetch(url).
+        fetch(url,{mode: 'no-cors'}).
             then(res => { 
                 if(!res.ok){
                     throw Error('Could not fetch the data for that resource');
