@@ -6,12 +6,12 @@ import AxiosFetch from "./AxiosFetch";
 
 const User = () => {
     // const {data: user, isPending, error} = useFetch('http://localhost:8000/user'); //http://localhost:8000/user
-    const {data: user, isPending, error} = AxiosFetch('http://localhost:8080/user/profile');
+    const {data: user, isPending, error} = AxiosFetch('http://localhost:8080/user/profile/');
     useEffect(()=>{
         console.log('inside user:',user);
         
     },[])
-    const username = "joelcr10"
+    
     return ( 
         <div>
             this is the user's page <br />

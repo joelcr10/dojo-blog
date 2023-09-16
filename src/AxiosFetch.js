@@ -11,8 +11,9 @@ const AxiosFetch = (url) =>{
     useEffect(()=>{
         const abortCont = new AbortController();
         axios.get(url).then((data)=>{
-            console.log('axios data:',data.data[0]);
-            setData(data.data[0]);
+            console.log('axios data:',data.data);
+            console.log(data.data);
+            setData(data.data);
             setIsPending(false);
             setError(null);
         }).catch(err =>{
@@ -26,7 +27,7 @@ const AxiosFetch = (url) =>{
         return ()=> abortCont.abort();
     },[url]);
      //empty dependency array prevents the useEffect from running for every change
-
+    console.log('actual',data);
     return {data,isPending,error};
 }
 

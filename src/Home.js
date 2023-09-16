@@ -1,9 +1,11 @@
+import AxiosFetch from "./AxiosFetch";
 import BlogList from "./BlogList";
 import useFetch from "./useFetch";
 
 
 const Home = () => {
-    const {data: blogs, isPending, error} = useFetch( 'http://localhost:8000/blogs');
+    // const {data: blogs, isPending, error} = useFetch( 'http://localhost:8000/blogs');
+    const {data: blogs, isPending, error} = AxiosFetch( 'http://localhost:8080/user/blogs');
 
     return ( 
         <div className="home">
