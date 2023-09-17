@@ -1,26 +1,35 @@
+import axios from "axios";
 import { useState } from "react";
 import {useNavigate} from 'react-router-dom';
 
 const Create = () => {
 
-    const [title,setTitle] = useState('');
-    const [body,setBody] = useState('');
-    const [author,setAuthor] = useState('mario');
+    const [Btitle,setTitle] = useState('');
+    const [Bbody,setBody] = useState('');
+    const [Bauthor,setAuthor] = useState('mario');
     const [isPending,setIsPending] = useState(false);
     const history = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const blog = {title,body,author};
-        setIsPending(true);
-        fetch('http://localhost:8000/blogs',{
-            method: 'POST',
-            headers: {"Content-type": "application/json"},
-            body: JSON.stringify(blog)
-        }).then(()=>{
-            console.log('New blog added');
-            setIsPending(false);
-            history('/')
+        const blog = {
+            title: Btitle,
+            body: Bbody,
+            author: Bauthor
+        };
+        setIsPending(true);  
+        axios({
+            method: 'post',
+            url: 'http://localhost:8080/user/save',
+            data: blog,
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }).then(function(response){
+            console.log(response);
+            history('/');
+        }).catch((error)=>{
+            console.log(error.response.data);
         })
 
     }
@@ -32,18 +41,18 @@ const Create = () => {
                 <input
                     type="text"
                     required
-                    value={ title }
+                    value={ Btitle }
                     onChange={(e)=>setTitle(e.target.value)}
                  />
                 <label>Blog Body:</label>
                 <textarea
                     required
-                    value={body}
+                    value={Bbody}
                     onChange={(e)=>setBody(e.target.value)}
                 ></textarea>
                 <label>Blog author</label>
                 <select
-                    value={author}
+                    value={Bauthor}
                     onChange={(e)=>setAuthor(e.target.value)}
                 >
                     <option value="maria">mario</option>
