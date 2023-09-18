@@ -1,10 +1,6 @@
 import { Link } from "react-router-dom";
 
 const BlogList = ({blogs,title}) => {
-    // const blogs = props.blogs;
-    // const title = props.title;
-    // blogs = blogs.toArray();
-    console.log('blog list',blogs);
  //remove this to get the actual data in home page
     return ( 
         <div className="blog-list">

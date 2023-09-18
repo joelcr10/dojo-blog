@@ -11,17 +11,14 @@ const BlogDetails = () => {
     const navigate = useNavigate();
   
     const handleClick = async () =>{
-      // fetch('http://localhost:8000/blogs/'+blog.id,{
-      //   method: 'DELETE'
-      // }).then(()=>{
-      //   navigate('/');
-      // })
-      console.log('button clicked');
-      await axios.delete('http://localhost:8080/user/blogs/'+id).then(()=>{
-        console.log("blog deleted");
+      axios.delete('http://localhost:8080/user/blogs/'+id).then(function(response){
+        console.log(response);
         navigate('/');
-      })
+    }).catch((error)=>{
+        console.log(error.response.data);
+    })
     }
+    
     return ( 
         <div className="blog-details">
             {isPending && <div>Loading...</div>}
