@@ -1,23 +1,38 @@
 import { Link } from "react-router-dom";
+import DisplayDate from "./DisplayDate";
+
 
 const BlogList = ({blogs,title}) => {
- //remove this to get the actual data in home page
-    const DisplayDate = (date) =>{
-        const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"];
-        let dateOnly = date?.slice(0,10);
-        const month = date?.slice(3,5);
-        const newDate = date.slice(0,2)+" "+months[parseInt(month)-1]+" "+date.slice(6);
-        return newDate;
+    
+    //limits the blog body to 2 lines to give a preview.
+    const BlogBody = (body) =>{
+        var letterLimit = 130;
+        if(body.length<=letterLimit){
+            return body;
+        }
+
+        var i = letterLimit;
+        while(body[i]!=" "){
+            i++;
+        }
+
+        var newBody = body.slice(0,i)+"...";
+        return newBody;
+
     }
     return ( 
         <div className="blog-list">
-            <h2>{title}</h2>
+            
             {blogs.map((blog)=>(
                 <div className="blog-preview" key={blog._id}>
-                    <Link to={`/blog/${blog._id}`}>
-                        <h2>{blog.title}</h2>
-                        <p>{blog.author}</p>
-                        <p>{DisplayDate(blog.created)}</p>
+                    <Link to={`/blog/${blog._id}`} state={blog}>
+                        <label className="author">{blog.author}</label>
+                        <label > - </label>
+                        <label className="created">{DisplayDate(blog.created)}</label>
+                        <h2 className="title">{blog.title}</h2>
+                        <p className="blog-body">{BlogBody(blog.body)} </p>
+                        {/* <Text numberOfLines = {1}>ojsbfs dfosjfsnf sojf apsofj  fapsjf poasfj asmf pamsfpas,f aspf apsofj as fpasjfp fsp psmfpa smap sfnfpas mf</Text> */}
+                        
                     </Link>
                     
                 </div>
