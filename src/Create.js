@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import {useNavigate} from 'react-router-dom';
+// import datetime from datetime;
 
 const Create = () => {
 
@@ -12,10 +13,18 @@ const Create = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        const currentDate = new Date();
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Note: Month is 0-based.
+        const year = currentDate.getFullYear();
+
+        const formattedDate = `${day}-${month}-${year}`;
         const blog = {
             title: Btitle,
             body: Bbody,
-            author: Bauthor
+            author: Bauthor,
+            created: formattedDate
         };
         setIsPending(true);  
         axios({
