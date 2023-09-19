@@ -3,6 +3,8 @@ import useFetch from "./useFetch";
 import AxiosFetch from "./AxiosFetch";
 import axios from "axios";
 import DisplayDate from "./DisplayDate";
+import blog1 from "./assets/images/blog1.jpg"
+import profile from "./assets/images/profile.jpg";
 
 
 const BlogDetails = () => {
@@ -25,13 +27,21 @@ const BlogDetails = () => {
     // }
     return ( 
         <div className="blog-details">
-            {isPending && <div>Loading...</div>}
+            {isPending && <div className="loading"></div>}
             {error && <div>{error}</div>}
             {blog && (
                 <article>
                     <h2 className="title">{blog[0].title}</h2>
-                    <p className="author">{ blog[0].author}</p>
-                    <p className="created">{DisplayDate(blog[0].created)}</p>
+                    <div className="author-info">
+                        <img src={profile} alt="no working" className="image" />
+                        <div className="user-date">
+                            <p className="author">{"@"+blog[0].author}</p>
+                            <p className="created">{DisplayDate(blog[0].created)}</p>
+                        </div>
+                        
+                    </div>
+                    {!blog[0].thumbnail && <img src={blog1} alt={blog[0].title} className="image" />}
+                    {blog[0].thumbnail && <img src={blog[0].thumbnail} className="image"></img>}
                     <p className="blog-body">{blog[0].body}</p>
                     <button onClick={handleClick}>delete</button>
                 </article>

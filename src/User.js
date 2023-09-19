@@ -12,10 +12,10 @@ const User = () => {
         
     },[])
     
-    return ( 
+    return (    
         <div>
             this is the user's page <br />
-            {isPending && <div>Loading...</div>}
+            {isPending && <div className="loading"></div>}
             {error && <div>{error}</div>}
             {user && (
                 <section>

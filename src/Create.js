@@ -9,7 +9,21 @@ const Create = () => {
     const [Bbody,setBody] = useState('');
     const [Bauthor,setAuthor] = useState('mario');
     const [isPending,setIsPending] = useState(false);
+    const [image, setImage] = useState(null);
     const history = useNavigate();
+
+
+    function convertToBase64(e){
+        var reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0]);
+        reader.onload = () =>{
+            console.log(reader.result);
+            setImage(reader.result);
+        }
+        reader.onerror = error =>{
+            console.log('error',error);
+        }
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,7 +38,8 @@ const Create = () => {
             title: Btitle,
             body: Bbody,
             author: Bauthor,
-            created: formattedDate
+            created: formattedDate,
+            thumbnail: image
         };
         setIsPending(true);  
         axios({
@@ -42,6 +57,8 @@ const Create = () => {
         })
 
     }
+
+    
     return ( 
         <div className="create">
             <h1>Add a New Blog</h1>
@@ -67,6 +84,11 @@ const Create = () => {
                     <option value="maria">mario</option>
                     <option value="yoshi">yoshi</option>
                 </select>
+                <input
+                    type="file"
+                    accept="image/*"
+                    onChange={convertToBase64}
+                />
                 {!isPending && <button>Add Blog</button>}
                 {isPending && <button disabled>Adding Blog...</button>}
 

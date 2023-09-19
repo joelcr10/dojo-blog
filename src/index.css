@@ -6,11 +6,33 @@
   font-family: "Quicksand";
   color: #333;
 }
+.App{
+  background-color: rgba(239, 239, 239, 0.406);
+}
+.loading {
+  width: 50px;
+  height: 50px;
+  margin: 20px auto;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #ff5722;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .navbar {
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
+  /* max-width:700px; */
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
 }
@@ -29,7 +51,7 @@
   color: #f1356d;
 }
 .content {
-  max-width: 600px;
+  max-width: 700px;
   margin: 20px auto;
   padding: 20px;
 }
@@ -38,11 +60,11 @@
 
 /* blog preview */
 .blog-preview {
-  padding: 40px 16px;
+  padding: 30px 16px;
   margin: 20px 0;
-  /* border-bottom: 0.5px solid #7b7b7b45; */
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-  background-color: rgba(239, 239, 239, 0.406);
+  background-color: white;
+  padding-top: 10px;
 }
 .blog-preview:hover {
   box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
@@ -70,12 +92,63 @@
   margin-top: 3px;
 }
 
+.blog-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: #f1356d; */
+  
+}
+
+.blog-content .image{
+  width: 30%;
+  height: 100%;
+}
+.blog-preview .blog-preview-text{
+  /* background-color: #3333335c; */
+  padding: 40px 10px;
+}
+
+@media screen and (max-width: 728px){
+  .blog-preview{
+    padding: 10px 16px;
+  }
+  .blog-preview .blog-body{
+    display: none;
+  }
+
+  .blog-content{
+    justify-content: space-between;
+  }
+
+  .blog-content .image{
+    min-width: 100px;
+  }
+
+  .blog-content .blog-preview-text{
+    max-height: 120px;
+    overflow: hidden;
+  }
+
+  .blog-preview .blog-content .blog-preview-text .author{
+    font-size: 14px;
+  }
+
+  .blog-preview .blog-content .blog-preview-text .created{
+    font-size: 14px;
+  }
+
+  .blog-preview .blog-content .blog-preview-text .title{
+    font-size: 16px;
+  }
+}
+
 
 /* blog details page */
 
-.blog-details div {
+/* .blog-details div {
   margin: 20px 0;
-}
+} */
 
 .blog-details button {
   background: #f1356d;
@@ -103,12 +176,37 @@
   color: #333333d8;
 }
 
+.blog-details .image{
+  width: 100%;
+  padding: 10px 0px;
+}
+
 .blog-details .blog-body{
   font-weight: 500;
   font-size: 18px;
   white-space: pre-wrap;
   line-height: 1.7;
   margin-top: 15px;
+}
+
+.blog-details .author-info{
+  display: flex;
+  /* background-color: #f1356d; */
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.blog-details .author-info .image{
+  width: 7%;
+  height: auto;
+  border-radius: 50%;
+  clip-path: circle();
+  min-width: 50px;
+}
+
+.blog-details .author-info .user-date{
+  margin-left: 10px;
+  /* background-color: blue; */
 }
 
 /* create new blog form */
