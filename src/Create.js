@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import {useNavigate} from 'react-router-dom';
+
 // import datetime from datetime;
 
 const Create = () => {
@@ -75,6 +76,7 @@ const Create = () => {
                     required
                     value={Bbody}
                     onChange={(e)=>setBody(e.target.value)}
+                    rows={9}
                 ></textarea>
                 <label>Blog author</label>
                 <select
@@ -89,6 +91,8 @@ const Create = () => {
                     accept="image/*"
                     onChange={convertToBase64}
                 />
+
+                
                 {!isPending && <button>Add Blog</button>}
                 {isPending && <button disabled>Adding Blog...</button>}
 

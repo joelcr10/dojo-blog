@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import useFetch from "./useFetch";
 import axios from "axios";
 import AxiosFetch from "./AxiosFetch";
+import profile from './assets/images/profile.jpg';
 
 const id = '650162573a49381f3a261251';
 const User = () => {
@@ -13,21 +14,44 @@ const User = () => {
     },[])
     
     return (    
-        <div>
-            this is the user's page <br />
+        <div className="user">
+            {/* this is the user's page <br /> */}
             {isPending && <div className="loading"></div>}
             {error && <div>{error}</div>}
             {user && (
-                <section>
-                    <label>Name: { user[0].name }</label>
+                <div className="profile">
+                    <div className="profile-container"> 
+                        <img src={profile} alt="" className="profile-photo"/>
+                        <div className="profile-name-container">
+                            <label className="name">{ user[0].name }</label>
+                            <br />
+                            <label className="username"> { "@"+user[0].username}</label>
+                        </div>
+                    </div>
                     <br />
-                    <label>Email: { user[0].email }</label>
-                    <br />
-                    <label>Username: { user[0].username}</label>
-                    <br />
-                    <label>Date Joined: { user[0].dateRegistered}</label>
-                </section>
+                    <div className="profile-fields">
+                        <label>Email</label>
+                        <div>{ user[0].email }</div>
+                    </div>
+                    <div className="profile-fields">
+                        <label>Username</label>
+                        <div>{ user[0].username}</div>
+                    </div>
+                    <div className="profile-fields">
+                        <label>Country</label>
+                        <div>India</div>
+                    </div>
+                    <div className="profile-fields">
+                        <label>Date Joined</label>
+                        <div>29 Sept 2010</div>
+                    </div>
+                </div>
             )}
+            
+            <div className="user-blogs">
+                <h1>Blogs Published</h1>
+            </div>
+            
         </div>
      );
 }

@@ -34,7 +34,8 @@ const BlogList = ({blogs,title}) => {
                                 <label > - </label>
                                 <label className="created">{DisplayDate(blog.created)}</label>
                                 <h2 className="title">{blog.title}</h2>
-                                <p className="blog-body">{BlogBody(blog.body)} </p>
+                                {/* <p className="blog-body">{BlogBody(blog.body)} </p> */}
+                                <p className="blog-body">{blog.body} </p>
                             </div>
                             {!blog.thumbnail && <img src={blog1} alt="" className="image"/>}
                             {blog.thumbnail && <img src={blog.thumbnail} className="image"></img>}
