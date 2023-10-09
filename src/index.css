@@ -141,6 +141,11 @@ html{
 -moz-box-shadow: 0px -181px 115px -77px rgb(0, 0, 0) inset;
 }
 
+.image-overlay:hover{
+  background-color: rgba(0, 0, 0, 0.302);
+  cursor: pointer;
+}
+
 .home-right-image-container label{
   position: absolute;
   z-index: 11;
@@ -202,11 +207,11 @@ html{
 }
 .blog-preview {
   
-  padding: 30px 16px;
+  padding: 10px 16px;
   margin: 0px 0;
   /* box-shadow: 1px 3px 5px rgba(0,0,0,0.1); */
   background-color: white;
-  padding-top: 10px;
+  padding-top: 0px;
   max-width: 750px;
   border-bottom: 1px solid rgba(97, 97, 97, 0.152);
   
@@ -235,7 +240,7 @@ html{
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3; /* start showing ellipsis when 3rd line is reached */
+  -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
   white-space: pre-wrap;
   
 
@@ -243,11 +248,12 @@ html{
 
 .blog-preview .title{
   margin-top: 3px;
-  max-width: 27rem;
+  /* max-width: 27rem; */
   text-overflow: ellipsis; /* <------ required */
    /* <---------- required */
   overflow: hidden; /* <------------- required */
   text-wrap: wrap;
+  font-size: 1.2rem;
 }
 
 .blog-content{
@@ -259,7 +265,7 @@ html{
 }
 
 .blog-content .image{
-  width: 30%;
+  width: 23%;
   height: 100%;
 }
 .blog-preview .blog-preview-text{
@@ -307,6 +313,12 @@ html{
 /* .blog-details div {
   margin: 20px 0;
 } */
+
+.blog-details article{
+  /* background-color: red; */
+  width: 50vw;
+  margin: auto;
+}
 
 .blog-details button {
   background: #f1356d;
