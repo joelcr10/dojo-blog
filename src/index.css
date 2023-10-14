@@ -45,18 +45,19 @@ html{
   align-items: center;
   /* max-width:700px; */
   margin: 0 auto;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.082);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.011);
   position: fixed;
   z-index: 10;
   background-color: var(--bg-color);
   width: 100%;
-  height: 60px;
+  height: 45px;
   top: 0;
-  box-shadow: 0px 1px 10px -5px;
+  box-shadow: 0px 1px 8px -7px;
 }
 .navbar h1 {
   color: rgb(16,68,107);
   margin-left: 10px;
+  font-size: 0.95rem;
 }
 .navbar .links {
   margin-left: auto;
@@ -66,7 +67,8 @@ html{
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 .navbar a:hover {
   color: rgb(16,68,107);
@@ -77,7 +79,7 @@ html{
   margin-left: 20px;
 }
 .navbar .logo-container .logo{
-  width: 40px;
+  width: 25px;
 }
 .content {
   max-width: 90vw;
@@ -272,6 +274,21 @@ html{
   /* background-color: #3333335c; */
   padding: 40px 10px;
 }
+
+.blog-preview-text .tags{
+  /* background-color: #fb0505; */
+  margin-top: 10px;
+}
+
+.blog-preview-text .tags span{
+  background-color: rgba(16, 68, 107, 0.788);
+  margin-right: 10px;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  color: white;
+}
+
 
 @media screen and (max-width: 728px){
   .blog-preview{

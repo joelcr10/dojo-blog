@@ -6,7 +6,7 @@ import rec from "./assets/images/recommended.jpeg";
 
 const Home = () => {
     // const {data: blogs, isPending, error} = useFetch( 'http://localhost:8000/blogs');
-    const {data: blogs, isPending, error} = AxiosFetch( 'http://localhost:8080/user/blogs');
+    const {data: blogs, isPending, error} = AxiosFetch( 'https://dojoblog-backend.onrender.com/user/blogs');
 
     return ( 
         <div className="home">

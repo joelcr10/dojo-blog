@@ -11,11 +11,11 @@ const BlogDetails = () => {
     const {id} = useParams()
     console.log(id)
     // const {data: blog, error, isPending} = useFetch('http://localhost:8000/blogs/'+id);
-    const {data:blog,error, isPending} = AxiosFetch('http://localhost:8080/user/blogs/'+id);
+    const {data:blog,error, isPending} = AxiosFetch('https://dojoblog-backend.onrender.com/user/blogs/'+id);
     const navigate = useNavigate();
   
     const handleClick = async () =>{
-      axios.delete('http://localhost:8080/user/blogs/'+id).then(function(response){
+      axios.delete('https://dojoblog-backend.onrender.com/user/blogs/'+id).then(function(response){
         console.log(response);
         navigate('/');
     }).catch((error)=>{

@@ -6,6 +6,7 @@ import Create from './Create';
 import BlogDetails from './BlogDetails';
 import NotFound from './NotFound';
 import User from './User';
+import Login from './Login';
 
 // npx json-server --watch data/db.json --port 8000
 function App() {
@@ -19,6 +20,7 @@ function App() {
                 <Route path='/create' element={<Create />}/>
                 <Route path='/blog/:id' element={<BlogDetails/>}/>
                 <Route path='/user' element={<User/>}/>
+                <Route path='/login' element={<Login/>}/>
                 <Route path='*' element={<NotFound/>}/>
               </Routes>
           </div>

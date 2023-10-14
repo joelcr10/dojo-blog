@@ -8,6 +8,7 @@ const Navbar = () => {
                 <h1>Dojo Blog</h1>
             </div>
             <div className="links">
+                {/* <Link to="/login">Login</Link> */}
                 <Link to="/">Home</Link>
                 <Link to="/create">New Blog</Link>
                 <Link to="/user">User</Link>

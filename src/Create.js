@@ -45,7 +45,7 @@ const Create = () => {
         setIsPending(true);  
         axios({
             method: 'post',
-            url: 'http://localhost:8080/user/save',
+            url: 'https://dojoblog-backend.onrender.com/user/save',
             data: blog,
             headers: {
                 'Content-Type': 'application/json',

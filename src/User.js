@@ -7,7 +7,7 @@ import profile from './assets/images/profile.jpg';
 const id = '650162573a49381f3a261251';
 const User = () => {
     // const {data: user, isPending, error} = useFetch('http://localhost:8000/user'); //http://localhost:8000/user
-    const {data: user, isPending, error} = AxiosFetch('http://localhost:8080/user/profile/'+id);
+    const {data: user, isPending, error} = AxiosFetch('https://dojoblog-backend.onrender.com/user/profile/'+id);
     useEffect(()=>{
         console.log('inside user:',user);
         
