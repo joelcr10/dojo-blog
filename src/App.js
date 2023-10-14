@@ -17,6 +17,7 @@ function App() {
           <div className="content">
               <Routes>
                 <Route exact path='/' element={<Home />}/>
+                <Route path='/dojo-blog' element={<Home />}/>
                 <Route path='/create' element={<Create />}/>
                 <Route path='/blog/:id' element={<BlogDetails/>}/>
                 <Route path='/user' element={<User/>}/>
