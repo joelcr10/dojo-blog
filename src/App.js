@@ -22,7 +22,7 @@ function App() {
                 <Route path='/blog/:id' element={<BlogDetails/>}/>
                 <Route path='/user' element={<User/>}/>
                 <Route path='/login' element={<Login/>}/>
-                <Route path='*' element={<NotFound/>}/>
+                <Route path='*' element={<Home/>}/>
               </Routes>
           </div>
         </div>
