@@ -322,6 +322,10 @@ html{
   .blog-preview .blog-content .blog-preview-text .title{
     font-size: 16px;
   }
+
+  .blog-preview-text .tags {
+    display: none;
+  }
 }
 
 
@@ -395,6 +399,12 @@ html{
 .blog-details .author-info .user-date{
   margin-left: 10px;
   /* background-color: blue; */
+}
+
+@media screen and (max-width: 728px){
+  .blog-details article{
+    width: 85vw;
+  }
 }
 
 /* create new blog form */
