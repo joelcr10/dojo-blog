@@ -179,7 +179,7 @@ html{
 }
 
 .rec-topics .topics label:hover{
-  background-color: grey;
+  background-color: rgba(37, 96, 163, 0.351);
   cursor: pointer;
 }
 
