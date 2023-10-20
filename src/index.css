@@ -178,6 +178,11 @@ html{
   flex-wrap: wrap;
 }
 
+.rec-topics .topics label:hover{
+  background-color: grey;
+  cursor: pointer;
+}
+
 .rec-topics h1{
   font-size: large;
 }
